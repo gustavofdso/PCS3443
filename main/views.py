@@ -11,6 +11,9 @@ from . import models
 def index(response):
     return render(response, "main/base.html", {})
 
+def home(response):
+    return render(response, "main/home.html", {})
+
 # CRUD Vendedor
 
 def cadastrar_vendedor(response):

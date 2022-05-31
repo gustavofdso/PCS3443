@@ -5,7 +5,7 @@ from . import views
 # TODO: adicionar todas as views
 
 urlpatterns = [
-    path('', views.index, name = 'index'),
+    path('', views.home, name = 'home'),
     path('vendedor/', views.vendedor, name = 'vendedor'),
     path('cliente/', views.vendedor, name = 'cliente'),
     path('produto/', views.vendedor, name = 'produto'),

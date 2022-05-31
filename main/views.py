@@ -8,9 +8,6 @@ from . import models
 # TODO: colocar forms de cada CRUD, codar os diagramas de sequecia
 # TODO: gets e posts
 
-def index(response):
-    return render(response, "main/base.html", {})
-
 def home(response):
     return render(response, "main/home.html", {})
 
@@ -29,7 +26,7 @@ def cadastrar_vendedor(response):
     #     salarioBruto = salarioBruto
     # )
     # POST INSERT
-    return HttpResponse(response)
+    return render(response, "main/crud.html", {"crud_name": "Vendedor"})
     
 
 def consultar_vendedor(response):

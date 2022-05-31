@@ -5,5 +5,5 @@ from . import views
 # TODO: adicionar todas as views
 
 urlpatterns = [
-    path('', views.home, name='index'),
+    path('', views.index, name='index'),
 ]

@@ -8,8 +8,8 @@ from . import models
 # TODO: colocar forms de cada CRUD, codar os diagramas de sequecia
 # TODO: gets e posts
 
-def home(response):
-    return HttpResponse("Essa eh a pagina indice - colocar aqui as passagens para demais CRUDS")
+def index(response):
+    return render(response, "main/base.html", {})
 
 # CRUD Vendedor
 

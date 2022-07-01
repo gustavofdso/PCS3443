@@ -17,12 +17,20 @@
 				<a class="navbar-brand" href="{% url 'index' %}"><h4>Loja de 1,99</h4></a>
 				<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 					<li class="nav-item">
-						<a class="nav-link" href="{% url 'admin:index' %}"><h4>Administrador</h4></a>
+						<a class="nav-link" href="{% url 'admin:index' %}"><h4>Painel do administrador</h4></a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="{% url 'vendedor-create' %}"><h4>Vendedor</h4></a>
 					</li>
-
+					<li class="nav-item">
+						<a class="nav-link" href="{% url 'cliente-create' %}"><h4>Cliente</h4></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{% url 'produto-create' %}"><h4>Produto</h4></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{% url 'venda-create' %}"><h4>Venda</h4></a>
+					</li>
 				</ul>
 			</div>
 		</nav>
@@ -36,7 +44,7 @@
 			<h4 class="text-center p-5">
 			  	Sistema da Loja de 1,99.
 			</h4>
-			
+
 			{% endblock %}
 
 		</div>

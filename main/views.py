@@ -1,103 +1,68 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.shortcuts import redirect, render
 from . import models
+from . import forms
 
 # Create your views here.
 
-# TODO: criar HTML template e alterar para CRUDs
-# TODO: colocar forms de cada CRUD, codar os diagramas de sequecia
-# TODO: gets e posts
-
-def home(response):
-    return render(response, "main/home.html", {})
+def index(response):
+    return render(response, "main/base.html", {"title": "Home"})
 
 # CRUD Vendedor
 
-def cadastrar_vendedor(response):
-    # HTML com form de cadastro
+def vendedor_create(response):
+    form = forms.VendedorCreate()
+    if response.method == 'POST':
+        form = forms.VendedorCreate(response.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('index')
 
-    # vendedor = models.Vendedor(
-    #     CPF = CPF,
-    #     nome = nome,
-    #     email = email,
-    #     telefone = telefone,
-    #     dataNascimento = dataNascimento,
-    #     dataAdmissao = dataAdmissao,
-    #     salarioBruto = salarioBruto
-    # )
-    # POST INSERT
-    return render(response, "main/crud.html", {"crud_name": "Vendedor"})
-    
+    return render(response, "main/forms.html", {"form": form})
 
-def consultar_vendedor(response):
-    # GET vendedor
-    # vendedor = models.Vendedor.objects.get(CPF = CPF)
-    
-    return HttpResponse(response)
+def vendedor_update(response, CPF):
+    try: vendedor = models.Vendedor.objects.get(CPF = CPF)
+    except models.Vendedor.DoesNotExist: return redirect('index')
+    form = forms.VendedorCreate(response.POST or None, instance = vendedor)
+    if form.is_valid():
+        form.save()
+        return redirect('index')
 
-def editar_vendedor(response):
-    # GET vendedor
-    # vendedor = models.Vendedor.objects.get(CPF = CPF)
-    
-    # Atualizar dados
-    # vendedor.nome = nome
+    return render(response, "main/forms.html", {"form": form})
 
-    # vendedor.save()
-
-    # POST UPDATE
-    
-    return HttpResponse(response)
-
-def remover_vendedor(response):
-    # GET vendedor
-    # vendedor = models.Vendedor.objects.get(CPF = CPF)
-
-    # POST DELETE
-    
-    return HttpResponse(response)
-
-# REPETIR para todos abaixo
-
-################################################################
+def vendedor_delete(response, CPF):
+    try: vendedor = models.Vendedor.objects.get(CPF = CPF)
+    except models.Vendedor.DoesNotExist: return redirect('index')
+    vendedor.delete()
+    return redirect('index')
 
 # CRUD Clientes
 
-def cadastrar_cliente(response):
-    pass
+def cliente_create(response):
+    form = forms.ClienteCreate()
+    if response.method == 'POST':
+        form = forms.ClienteCreate(response.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('index')
 
-def consultar_cliente(response):
-    pass
+    return render(response, "main/forms.html", {"form": form})
 
-def editar_cliente(response):
-    pass
+def cliente_update(response, CPF):
+    try: cliente = models.Cliente.objects.get(CPF = CPF)
+    except models.Cliente.DoesNotExist: return redirect('index')
+    form = forms.ClienteCreate(response.POST or None, instance = cliente)
+    if form.is_valid():
+        form.save()
+        return redirect('index')
 
-def remover_cliente(response):
-    pass
+    return render(response, "main/forms.html", {"form": form})
+
+def cliente_delete(response, CPF):
+    try: cliente = models.Cliente.objects.get(CPF = CPF)
+    except models.Cliente.DoesNotExist: return redirect('index')
+    cliente.delete()
+    return redirect('index')
 
 # CRUD Produto
 
-def cadastrar_produto(response):
-    pass
-
-def consultar_produto(response):
-    pass
-
-def editar_produto(response):
-    pass
-
-def remover_produto(response):
-    pass
-
 # CRUD Vendas
-
-def cadastrar_venda(response):
-    pass
-
-def consultar_venda(response):
-    pass
-
-def editar_venda(response):
-    pass
-
-def remover_venda(response):
-    pass

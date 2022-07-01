@@ -23,13 +23,13 @@ class ClienteCreate(forms.ModelForm):
     class Meta:
         model = models.Cliente
         fields = '__all__'
-        exclude = ['dataCadastro']
         labels = {
             'CPF': 'CPF',
             'nome': 'Nome',
             'email': 'E-mail',
             'telefone': 'Telefone',
-            'dataNascimento': 'Data de nascimento'
+            'dataNascimento': 'Data de nascimento',
+            'dataCadastro': 'Data de cadastro'
         }
         widgets = {
             'dataNascimento': forms.DateInput(format=('%d/%m/%Y'), attrs={'type': 'date'}),
@@ -50,11 +50,11 @@ class VendaCreate(forms.ModelForm):
     class Meta:
         model = models.Venda
         fields = '__all__'
-        exclude = ['data']
         labels = {
             'CPFVendedor': 'CPF do vendedor',
             'CPFCliente': 'CPF do cliente',
             'idProduto': 'Id do produto',
+            'data': 'Data da venda',
             'quantidade': 'Quantidade',
             'precoUnitario': 'Preço unitário'
         }

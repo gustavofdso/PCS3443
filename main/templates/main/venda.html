@@ -1,0 +1,27 @@
+{% extends 'main/crud.html' %}
+
+{% block table %}
+    <tr>
+        <th>CPF Vendedor</th>
+        <th>CPF Cliente</th>
+        <th>Id do produto</th>
+        <th>Data da venda</th>
+        <th>Quantidade</th>
+        <th>Preço Unitário</th>
+        <th></th>
+        <th></th>
+    </tr>
+
+    {% for data in dataset %}
+        <tr>
+            <td>{{ data.CPFVendedor }}</td>
+            <td>{{ data.CPFCliente }}</td>
+            <td>{{ data.idProduto }}</td>
+            <td>{{ data.data }}</td>
+            <td>{{ data.quantidade }}</td>
+            <td>{{ data.precoUnitario }}</td>
+            <td><a href="update/{{data.id}}" class="btn btn-primary" id="{{data.id}}">Edit</a></td>
+            <td><a href="delete/{{data.id}}" class="btn btn-danger" id="{{data.id}}">Delete</a></td>
+        </tr>
+    {% endfor %}
+{% endblock %}

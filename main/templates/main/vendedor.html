@@ -1,0 +1,29 @@
+{% extends 'main/crud.html' %}
+
+{% block table %}
+    <tr>
+        <th>CPF</th>
+        <th>Nome</th>
+        <th>E-mail</th>
+        <th>Telefone</th>
+        <th>Data de nascimento</th>
+        <th>Data de admissão</th>
+        <th>Salário bruto</th>
+        <th></th>
+        <th></th>
+    </tr>
+
+    {% for data in dataset %}
+        <tr>
+            <td>{{ data.CPF }}</td>
+            <td>{{ data.nome }}</td>
+            <td>{{ data.email }}</td>
+            <td>{{ data.telefone }}</td>
+            <td>{{ data.dataNascimento }}</td>
+            <td>{{ data.dataAdmissao }}</td>
+            <td>{{ data.salarioBruto }}</td>
+            <td><a href="update/{{data.CPF}}" class="btn btn-primary" id="{{data.CPF}}">Edit</a></td>
+            <td><a href="delete/{{data.CPF}}" class="btn btn-danger" id="{{data.CPF}}">Delete</a></td>
+        </tr>
+    {% endfor %}
+{% endblock %}

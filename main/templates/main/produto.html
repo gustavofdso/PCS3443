@@ -1,0 +1,23 @@
+{% extends 'main/crud.html' %}
+
+{% block table %}
+    <tr>
+        <th>Id</th>
+        <th>Nome</th>
+        <th>Quantidade disponível</th>
+        <th>Preço unitário</th>
+        <th></th>
+        <th></th>
+    </tr>
+
+    {% for data in dataset %}
+        <tr>
+            <td>{{ data.id }}</td>
+            <td>{{ data.nome }}</td>
+            <td>{{ data.quantidadeDisponivel }}</td>
+            <td>{{ data.precoUnitario }}</td>
+            <td><a href="update/{{data.id}}" class="btn btn-primary" id="{{data.id}}">Edit</a></td>
+            <td><a href="delete/{{data.id}}" class="btn btn-danger" id="{{data.id}}">Delete</a></td>
+        </tr>
+    {% endfor %}
+{% endblock %}

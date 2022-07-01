@@ -9,112 +9,120 @@ def index(response):
 
 # CRUD Vendedor
 
-def vendedor_create(response):
+def vendedor(response):
     form = forms.VendedorCreate()
     if response.method == 'POST':
         form = forms.VendedorCreate(response.POST)
         if form.is_valid():
             form.save()
-            return redirect('index')
+            return redirect('vendedor')
 
-    return render(response, "main/forms.html", {"form": form})
+    dataset = models.Vendedor.objects.all()
+
+    return render(response, "main/vendedor.html", {"form": form, "dataset": dataset})
 
 def vendedor_update(response, CPF):
     try: vendedor = models.Vendedor.objects.get(CPF = CPF)
-    except models.Vendedor.DoesNotExist: return redirect('index')
+    except models.Vendedor.DoesNotExist: return redirect('vendedor')
     form = forms.VendedorCreate(response.POST or None, instance = vendedor)
     if form.is_valid():
         form.save()
-        return redirect('index')
+        return redirect('vendedor')
 
-    return render(response, "main/forms.html", {"form": form})
+    return render(response, "main/crud.html", {"form": form})
 
 def vendedor_delete(response, CPF):
     try: vendedor = models.Vendedor.objects.get(CPF = CPF)
-    except models.Vendedor.DoesNotExist: return redirect('index')
+    except models.Vendedor.DoesNotExist: return redirect('vendedor')
     vendedor.delete()
-    return redirect('index')
+    return redirect('vendedor')
 
 # CRUD Cliente
 
-def cliente_create(response):
+def cliente(response):
     form = forms.ClienteCreate()
     if response.method == 'POST':
         form = forms.ClienteCreate(response.POST)
         if form.is_valid():
             form.save()
-            return redirect('index')
+            return redirect('cliente')
 
-    return render(response, "main/forms.html", {"form": form})
+    dataset = models.Cliente.objects.all()
+
+    return render(response, "main/cliente.html", {"form": form, "dataset": dataset})
 
 def cliente_update(response, CPF):
     try: cliente = models.Cliente.objects.get(CPF = CPF)
-    except models.Cliente.DoesNotExist: return redirect('index')
+    except models.Cliente.DoesNotExist: return redirect('cliente')
     form = forms.ClienteCreate(response.POST or None, instance = cliente)
     if form.is_valid():
         form.save()
-        return redirect('index')
+        return redirect('cliente')
 
-    return render(response, "main/forms.html", {"form": form})
+    return render(response, "main/crud.html", {"form": form})
 
 def cliente_delete(response, CPF):
     try: cliente = models.Cliente.objects.get(CPF = CPF)
-    except models.Cliente.DoesNotExist: return redirect('index')
+    except models.Cliente.DoesNotExist: return redirect('cliente')
     cliente.delete()
-    return redirect('index')
+    return redirect('cliente')
 
 # CRUD Produto
 
-def produto_create(response):
+def produto(response):
     form = forms.ProdutoCreate()
     if response.method == 'POST':
         form = forms.ProdutoCreate(response.POST)
         if form.is_valid():
             form.save()
-            return redirect('index')
+            return redirect('produto')
 
-    return render(response, "main/forms.html", {"form": form})
+    dataset = models.Produto.objects.all()
 
-def produto_update(response, CPF):
-    try: produto = models.Produto.objects.get(CPF = CPF)
-    except models.Produto.DoesNotExist: return redirect('index')
+    return render(response, "main/produto.html", {"form": form, "dataset": dataset})
+
+def produto_update(response, id):
+    try: produto = models.Produto.objects.get(id = id)
+    except models.Produto.DoesNotExist: return redirect('produto')
     form = forms.ProdutoCreate(response.POST or None, instance = produto)
     if form.is_valid():
         form.save()
-        return redirect('index')
+        return redirect('produto')
 
-    return render(response, "main/forms.html", {"form": form})
+    return render(response, "main/crud.html", {"form": form})
 
-def produto_delete(response, CPF):
-    try: produto = models.Produto.objects.get(CPF = CPF)
-    except models.Produto.DoesNotExist: return redirect('index')
+def produto_delete(response, id):
+    try: produto = models.Produto.objects.get(id = id)
+    except models.Produto.DoesNotExist: return redirect('produto')
     produto.delete()
-    return redirect('index')
+    return redirect('produto')
 
 # CRUD Venda
 
-def venda_create(response):
+def venda(response):
     form = forms.VendaCreate()
     if response.method == 'POST':
         form = forms.VendaCreate(response.POST)
         if form.is_valid():
             form.save()
-            return redirect('index')
+            return redirect('venda')
 
-    return render(response, "main/forms.html", {"form": form})
+    dataset = models.Venda.objects.all()
+
+    return render(response, "main/venda.html", {"form": form, "dataset": dataset})
 
 def venda_update(response, CPF):
     try: venda = models.Venda.objects.get(CPF = CPF)
-    except models.Venda.DoesNotExist: return redirect('index')
+    except models.Venda.DoesNotExist: return redirect('venda')
     form = forms.VendaCreate(response.POST or None, instance = venda)
     if form.is_valid():
         form.save()
-        return redirect('index')
+        return redirect('venda')
 
-    return render(response, "main/forms.html", {"form": form})
+    return render(response, "main/crud.html", {"form": form})
 
 def venda_delete(response, CPF):
     try: venda = models.Venda.objects.get(CPF = CPF)
-    except models.Venda.DoesNotExist: return redirect('index')
+    except models.Venda.DoesNotExist: return redirect('venda')
     venda.delete()
-    return redirect('index')
+    return redirect('venda')

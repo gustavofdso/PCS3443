@@ -2,6 +2,7 @@
 
 {% block table %}
     <tr>
+        <th>Id</th>
         <th>CPF Vendedor</th>
         <th>CPF Cliente</th>
         <th>Id do produto</th>
@@ -14,14 +15,15 @@
 
     {% for data in dataset %}
         <tr>
+            <td>{{ data.id }}</td>
             <td>{{ data.CPFVendedor }}</td>
             <td>{{ data.CPFCliente }}</td>
             <td>{{ data.idProduto }}</td>
             <td>{{ data.data }}</td>
             <td>{{ data.quantidade }}</td>
             <td>{{ data.precoUnitario }}</td>
-            <td><a href="update/{{data.id}}" class="btn btn-primary" id="{{data.id}}">Edit</a></td>
-            <td><a href="delete/{{data.id}}" class="btn btn-danger" id="{{data.id}}">Delete</a></td>
+            <td><a href="update/{{data.id}}" class="btn btn-primary">Edit</a></td>
+            <td><a href="delete/{{data.id}}" class="btn btn-danger" onclick="return confirm('Deseja excluir essa linha?');">Delete</a></td>
         </tr>
     {% endfor %}
 {% endblock %}

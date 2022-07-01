@@ -26,6 +26,7 @@ class Produto(models.Model):
     precoUnitario = models.DecimalField(max_digits = 10, decimal_places = 2)
 
 class Venda(models.Model):
+    id = models.AutoField(primary_key = True)
     CPFVendedor = models.ForeignKey(Vendedor, on_delete = models.CASCADE)
     CPFCliente = models.ForeignKey(Cliente, on_delete = models.CASCADE)
     idProduto = models.ForeignKey(Produto, on_delete = models.CASCADE)

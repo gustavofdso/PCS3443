@@ -24,6 +24,12 @@ python manage.py runserver
 
 O servidor deve ser hospedado na URL http://127.0.0.1:8000/, A partir do qual todas as demais páginas do projeto podem ser acessadas.
 
+Para confirmar acessar a página de administrador, usar as credenciais:
+
+Login: gustavo
+
+Senha: gustavo
+
 Para confirmar alterações no código, na pasta do projeto, deve-se executar:
 
 ```

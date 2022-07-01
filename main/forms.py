@@ -15,8 +15,8 @@ class VendedorCreate(forms.ModelForm):
             'salarioBruto': 'Salário bruto'
         }
         widgets = {
-            'dataNascimento': forms.DateInput(format=('%d/%m/%Y'), attrs={'type': 'date'}),
-            'dataAdmissao': forms.DateInput(format=('%d/%m/%Y'), attrs={'type': 'date'}),
+            'dataNascimento': forms.DateInput(attrs={'type': 'date'}),
+            'dataAdmissao': forms.DateInput(attrs={'type': 'date'})
         }
 
 class ClienteCreate(forms.ModelForm):
@@ -32,7 +32,8 @@ class ClienteCreate(forms.ModelForm):
             'dataCadastro': 'Data de cadastro'
         }
         widgets = {
-            'dataNascimento': forms.DateInput(format=('%d/%m/%Y'), attrs={'type': 'date'}),
+            'dataNascimento': forms.DateInput(attrs={'type': 'date'}),
+            'dataCadastro': forms.DateInput(attrs={'type': 'date'})
         }
 
 class ProdutoCreate(forms.ModelForm):
@@ -57,4 +58,7 @@ class VendaCreate(forms.ModelForm):
             'data': 'Data da venda',
             'quantidade': 'Quantidade',
             'precoUnitario': 'Preço unitário'
+        }
+        widgets = {
+            'data': forms.DateInput(attrs={'type': 'date'})
         }

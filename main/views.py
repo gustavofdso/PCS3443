@@ -15,10 +15,8 @@ def vendedor(response):
         form = forms.VendedorCreate(response.POST)
         if form.is_valid():
             form.save()
-            return redirect('vendedor')
 
     dataset = models.Vendedor.objects.all()
-
     return render(response, "main/vendedor.html", {"form": form, "dataset": dataset})
 
 def vendedor_update(response, CPF):
@@ -45,10 +43,8 @@ def cliente(response):
         form = forms.ClienteCreate(response.POST)
         if form.is_valid():
             form.save()
-            return redirect('cliente')
 
     dataset = models.Cliente.objects.all()
-
     return render(response, "main/cliente.html", {"form": form, "dataset": dataset})
 
 def cliente_update(response, CPF):
@@ -75,10 +71,8 @@ def produto(response):
         form = forms.ProdutoCreate(response.POST)
         if form.is_valid():
             form.save()
-            return redirect('produto')
 
     dataset = models.Produto.objects.all()
-
     return render(response, "main/produto.html", {"form": form, "dataset": dataset})
 
 def produto_update(response, id):
@@ -105,14 +99,12 @@ def venda(response):
         form = forms.VendaCreate(response.POST)
         if form.is_valid():
             form.save()
-            return redirect('venda')
-
+            
     dataset = models.Venda.objects.all()
-
     return render(response, "main/venda.html", {"form": form, "dataset": dataset})
 
-def venda_update(response, CPF):
-    try: venda = models.Venda.objects.get(CPF = CPF)
+def venda_update(response, id):
+    try: venda = models.Venda.objects.get(id = id)
     except models.Venda.DoesNotExist: return redirect('venda')
     form = forms.VendaCreate(response.POST or None, instance = venda)
     if form.is_valid():
@@ -121,8 +113,8 @@ def venda_update(response, CPF):
 
     return render(response, "main/crud.html", {"form": form})
 
-def venda_delete(response, CPF):
-    try: venda = models.Venda.objects.get(CPF = CPF)
+def venda_delete(response, id):
+    try: venda = models.Venda.objects.get(id = id)
     except models.Venda.DoesNotExist: return redirect('venda')
     venda.delete()
     return redirect('venda')

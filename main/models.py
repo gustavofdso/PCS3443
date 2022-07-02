@@ -11,6 +11,9 @@ class Vendedor(models.Model):
     dataAdmissao = models.DateField()
     salarioBruto = models.DecimalField(max_digits = 10, decimal_places = 2)
 
+    def __str__(self):
+        return self.nome
+
 class Cliente(models.Model):
     CPF = models.IntegerField(primary_key = True)
     nome = models.CharField(max_length = 300)
@@ -19,11 +22,17 @@ class Cliente(models.Model):
     dataNascimento = models.DateField(null = True)
     dataCadastro = models.DateField()
     
+    def __str__(self):
+        return self.nome
+
 class Produto(models.Model):
     id = models.AutoField(primary_key = True)
     nome = models.CharField(max_length = 300)
     quantidadeDisponivel = models.IntegerField()
     precoUnitario = models.DecimalField(max_digits = 10, decimal_places = 2)
+
+    def __str__(self):
+        return self.nome
 
 class Venda(models.Model):
     id = models.AutoField(primary_key = True)
@@ -33,3 +42,6 @@ class Venda(models.Model):
     data = models.DateField()
     quantidade = models.IntegerField()
     precoUnitario = models.DecimalField(max_digits = 10, decimal_places = 2)
+
+    def __str__(self):
+        return self.id

@@ -22,8 +22,8 @@
             <td>{{ data.dataNascimento }}</td>
             <td>{{ data.dataAdmissao }}</td>
             <td>{{ data.salarioBruto }}</td>
-            <td><a href="update/{{data.CPF}}" class="btn btn-primary">Edit</a></td>
-            <td><a href="delete/{{data.CPF}}" class="btn btn-danger" onclick="return confirm('Deseja excluir essa linha?');">Delete</a></td>
+            <td><a href="update/{{data.CPF}}" class="btn btn-primary">Editar</a></td>
+            <td><a href="delete/{{data.CPF}}" class="btn btn-danger" onclick="return confirm('Deseja excluir essa linha?');">Deletar</a></td>
         </tr>
     {% endfor %}
 {% endblock %}

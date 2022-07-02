@@ -16,8 +16,8 @@
             <td>{{ data.nome }}</td>
             <td>{{ data.quantidadeDisponivel }}</td>
             <td>{{ data.precoUnitario }}</td>
-            <td><a href="update/{{data.id}}" class="btn btn-primary">Edit</a></td>
-            <td><a href="delete/{{data.id}}" class="btn btn-danger" onclick="return confirm('Deseja excluir essa linha?');";>Delete</a></td>
+            <td><a href="update/{{data.id}}" class="btn btn-primary">Editar</a></td>
+            <td><a href="delete/{{data.id}}" class="btn btn-danger" onclick="return confirm('Deseja excluir essa linha?');";>Deletar</a></td>
         </tr>
     {% endfor %}
 {% endblock %}

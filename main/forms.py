@@ -52,9 +52,9 @@ class VendaCreate(forms.ModelForm):
         model = models.Venda
         fields = '__all__'
         labels = {
-            'CPFVendedor': 'CPF do vendedor',
-            'CPFCliente': 'CPF do cliente',
-            'idProduto': 'Id do produto',
+            'CPFVendedor': 'Nome do vendedor',
+            'CPFCliente': 'Nome do cliente',
+            'idProduto': 'Nome do produto',
             'data': 'Data da venda',
             'quantidade': 'Quantidade',
             'precoUnitario': 'Preço unitário'

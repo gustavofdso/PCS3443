@@ -46,14 +46,13 @@ class ProdutoCreate(forms.ModelForm):
             'precoUnitario': 'Preço unitário'
         }
 
-
 class VendaCreate(forms.ModelForm):
     class Meta:
         model = models.Venda
         fields = '__all__'
         labels = {
-            'CPFVendedor': 'Nome do vendedor',
-            'CPFCliente': 'Nome do cliente',
+            'CPFVendedor': 'CPF do vendedor',
+            'CPFCliente': 'CPF do cliente',
             'idProduto': 'Nome do produto',
             'data': 'Data da venda',
             'quantidade': 'Quantidade',

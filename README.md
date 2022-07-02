@@ -42,13 +42,13 @@ O projeto consiste num sistema capaz de guardar informações sobre operações 
     * `precoUnitario` => DecimalField, max_digits = 10, decimal_places = 2
 
 * Venda - nesse modelo, são guardadas informações sobre os produtos vendas realizadas. A tabela possui os seguintes campos:
-    * id => AutoField, primary_key = True
-    * CPFVendedor => ForeignKey references Vendedor, on_delete = CASCADE
-    * CPFCliente => ForeignKey references Cliente, on_delete = CASCADE
-    * idProduto => ForeignKey references Produto, on_delete = CASCADE
-    * data => DateField
-    * quantidade => IntegerField
-    * precoUnitario => DecimalField, max_digits = 10, decimal_places = 2
+    * `id` => AutoField, primary_key = True
+    * `CPFVendedor` => ForeignKey references Vendedor, on_delete = CASCADE
+    * `CPFCliente` => ForeignKey references Cliente, on_delete = CASCADE
+    * `idProduto` => ForeignKey references Produto, on_delete = CASCADE
+    * `data` => DateField
+    * `quantidade` => IntegerField
+    * `precoUnitario` => DecimalField, max_digits = 10, decimal_places = 2
 
 Para cada uma dessas CRUDs, é permitido aos funcionários da loja fazer todas as manipulações necessárias: realizar o cadastro de novas linhas, consultas, alterações e deleções. O sistema foi construído de forma a ser auto-explicativo, com botões simples para manipulação da base de dados.
 

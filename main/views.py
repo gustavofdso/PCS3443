@@ -6,7 +6,7 @@ from . import signals
 # Create your views here.
 
 def index(response):
-    return render(response, "main/base.html", {"title": "Home"})
+    return render(response, "main/base.html")
 
 # CRUD Vendedor
 

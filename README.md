@@ -56,13 +56,19 @@ Para cada uma dessas CRUDs, é permitido aos funcionários da loja fazer todas a
 
 ### Utilização do sistema
 
-Para o funcionamento do sistema desenvolvido, é necessário um interpretador de Python 3.8.13 e a biblioteca `django 4.0.5`. A hospedagem do servidor que contém a base de dados pode ser feita com a execução do seguinte comando:
+Para o funcionamento do sistema desenvolvido, é necessário um interpretador de Python 3.8.13 e a biblioteca `django 4.0.5`. A hospedagem do servidor que contém a base de dados pode ser feita com o seguinte comando:
 
 ```
 python manage.py runserver
 ```
 
 O servidor será hospedado em localhost, a partir do qual todas as demais páginas do projeto podem ser acessadas.
+
+A execução do script de testes de atualização da quantidade de produtos pode ser feita com o seguinte comando:
+
+```
+python manage.py test main.tests
+```
 
 Para acessar a página de administrador, deve-se usar as credenciais:
 

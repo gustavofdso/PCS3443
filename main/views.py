@@ -1,7 +1,5 @@
 from django.shortcuts import redirect, render
-from . import models
-from . import forms
-from . import signals
+from . import models, forms, signals
 
 # Create your views here.
 
@@ -11,9 +9,9 @@ def index(response):
 # CRUD Vendedor
 
 def vendedor(response):
-    form = forms.VendedorCreate()
+    form = forms.VendedorForm()
     if response.method == 'POST':
-        form = forms.VendedorCreate(response.POST)
+        form = forms.VendedorForm(response.POST)
         if form.is_valid():
             form.save()
 
@@ -23,7 +21,7 @@ def vendedor(response):
 def vendedor_update(response, CPF):
     try: vendedor = models.Vendedor.objects.get(CPF = CPF)
     except models.Vendedor.DoesNotExist: return redirect('vendedor')
-    form = forms.VendedorCreate(response.POST or None, instance = vendedor)
+    form = forms.VendedorForm(response.POST or None, instance = vendedor)
     if form.is_valid():
         form.save()
         return redirect('vendedor')
@@ -39,9 +37,9 @@ def vendedor_delete(response, CPF):
 # CRUD Cliente
 
 def cliente(response):
-    form = forms.ClienteCreate()
+    form = forms.ClienteForm()
     if response.method == 'POST':
-        form = forms.ClienteCreate(response.POST)
+        form = forms.ClienteForm(response.POST)
         if form.is_valid():
             form.save()
 
@@ -51,7 +49,7 @@ def cliente(response):
 def cliente_update(response, CPF):
     try: cliente = models.Cliente.objects.get(CPF = CPF)
     except models.Cliente.DoesNotExist: return redirect('cliente')
-    form = forms.ClienteCreate(response.POST or None, instance = cliente)
+    form = forms.ClienteForm(response.POST or None, instance = cliente)
     if form.is_valid():
         form.save()
         return redirect('cliente')
@@ -67,9 +65,9 @@ def cliente_delete(response, CPF):
 # CRUD Produto
 
 def produto(response):
-    form = forms.ProdutoCreate()
+    form = forms.ProdutoForm()
     if response.method == 'POST':
-        form = forms.ProdutoCreate(response.POST)
+        form = forms.ProdutoForm(response.POST)
         if form.is_valid():
             form.save()
 
@@ -79,7 +77,7 @@ def produto(response):
 def produto_update(response, id):
     try: produto = models.Produto.objects.get(id = id)
     except models.Produto.DoesNotExist: return redirect('produto')
-    form = forms.ProdutoCreate(response.POST or None, instance = produto)
+    form = forms.ProdutoForm(response.POST or None, instance = produto)
     if form.is_valid():
         form.save()
         return redirect('produto')
@@ -95,9 +93,9 @@ def produto_delete(response, id):
 # CRUD Venda
 
 def venda(response):
-    form = forms.VendaCreate()
+    form = forms.VendaForm()
     if response.method == 'POST':
-        form = forms.VendaCreate(response.POST)
+        form = forms.VendaForm(response.POST)
         if form.is_valid():
             form.save()
             
@@ -107,7 +105,7 @@ def venda(response):
 def venda_update(response, id):
     try: venda = models.Venda.objects.get(id = id)
     except models.Venda.DoesNotExist: return redirect('venda')
-    form = forms.VendaCreate(response.POST or None, instance = venda)
+    form = forms.VendaForm(response.POST or None, instance = venda)
     if form.is_valid():
         form.save()
         return redirect('venda')

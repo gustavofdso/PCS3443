@@ -1,7 +1,7 @@
 from django import forms
 from . import models
 
-class VendedorCreate(forms.ModelForm):
+class VendedorForm(forms.ModelForm):
     class Meta:
         model = models.Vendedor
         fields = '__all__'
@@ -19,7 +19,7 @@ class VendedorCreate(forms.ModelForm):
             'dataAdmissao': forms.DateInput(attrs={'type': 'date'})
         }
 
-class ClienteCreate(forms.ModelForm):
+class ClienteForm(forms.ModelForm):
     class Meta:
         model = models.Cliente
         fields = '__all__'
@@ -36,7 +36,7 @@ class ClienteCreate(forms.ModelForm):
             'dataCadastro': forms.DateInput(attrs={'type': 'date'})
         }
 
-class ProdutoCreate(forms.ModelForm):
+class ProdutoForm(forms.ModelForm):
     class Meta:
         model = models.Produto
         fields = '__all__'
@@ -46,7 +46,7 @@ class ProdutoCreate(forms.ModelForm):
             'precoUnitario': 'Preço unitário'
         }
 
-class VendaCreate(forms.ModelForm):
+class VendaForm(forms.ModelForm):
     class Meta:
         model = models.Venda
         fields = '__all__'

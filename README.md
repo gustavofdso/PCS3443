@@ -37,7 +37,7 @@ O projeto consiste num sistema capaz de guardar informações sobre operações 
 
 * Produto - nesse modelo, são guardadas informações sobre os produtos vendidos pela loja. A tabela possui os seguintes campos:
     * `id` => AutoField, primary_key = True
-    * `nome` => CharField, max_length = 300
+    * `nome` => CharField, max_length = 300, unique = True
     * `quantidadeDisponivel` => IntegerField
     * `precoUnitario` => DecimalField, max_digits = 10, decimal_places = 2
 

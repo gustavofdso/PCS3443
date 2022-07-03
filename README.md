@@ -21,7 +21,7 @@ O projeto consiste num sistema capaz de guardar informações sobre operações 
 * Vendedor - nesse modelo, são guardadas informações gerais sobre os funcionários da loja. A tabela possui os seguintes campos:
     * `CPF` => IntegerField, primary_key = True
     * `nome` => CharField, max_length = 300
-    * `email` => CharField, max_length = 300
+    * `email` => EmailField, max_length = 300
     * `telefone` => IntegerField
     * `dataNascimento` => DateField
     * `dataAdmissao` => DateField
@@ -30,7 +30,7 @@ O projeto consiste num sistema capaz de guardar informações sobre operações 
 * Cliente - nesse modelo, são guardadas informações gerais sobre os clientes da loja. A tabela possui os seguintes campos:
     * `CPF` => IntegerField, primary_key = True
     * `nome` => CharField, max_length = 300
-    * `email` => CharField, max_length = 300
+    * `email` => EmailField, max_length = 300
     * `telefone` => IntegerField
     * `dataNascimento` => DateField
     * `dataCadastro` => DateField

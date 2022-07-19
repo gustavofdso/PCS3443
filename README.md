@@ -18,7 +18,7 @@ Alunos:
 
 O projeto consiste num sistema capaz de guardar informações sobre operações realizada numa pequena loja. Ele foi projetado para ser usado por funcionários da loja, para fazer cadastro e manutenção dos dados. São implementados os CRUDs:
 
-* Vendedor - nesse modelo, são guardadas informações gerais sobre os funcionários da loja. A tabela possui os seguintes campos:
+* `Vendedor` - nesse modelo, são guardadas informações gerais sobre os funcionários da loja. A tabela possui os seguintes campos:
     * `CPF` => IntegerField, primary_key = True
     * `nome` => CharField, max_length = 300
     * `email` => EmailField, max_length = 300
@@ -27,7 +27,7 @@ O projeto consiste num sistema capaz de guardar informações sobre operações 
     * `dataAdmissao` => DateField
     * `salarioBruto` => DecimalField, max_digits = 10, decimal_places = 2
 
-* Cliente - nesse modelo, são guardadas informações gerais sobre os clientes da loja. A tabela possui os seguintes campos:
+* ``` - nesse modelo, são guardadas informações gerais sobre os clientes da loja. A tabela possui os seguintes campos:
     * `CPF` => IntegerField, primary_key = True
     * `nome` => CharField, max_length = 300
     * `email` => EmailField, max_length = 300
@@ -35,17 +35,17 @@ O projeto consiste num sistema capaz de guardar informações sobre operações 
     * `dataNascimento` => DateField
     * `dataCadastro` => DateField
 
-* Produto - nesse modelo, são guardadas informações sobre os produtos vendidos pela loja. A tabela possui os seguintes campos:
+* `Produto` - nesse modelo, são guardadas informações sobre os produtos vendidos pela loja. A tabela possui os seguintes campos:
     * `id` => AutoField, primary_key = True
     * `nome` => CharField, max_length = 300, unique = True
     * `quantidadeDisponivel` => IntegerField
     * `precoUnitario` => DecimalField, max_digits = 10, decimal_places = 2
 
-* Venda - nesse modelo, são guardadas informações sobre os produtos vendas realizadas. A tabela possui os seguintes campos:
+* `Venda` - nesse modelo, são guardadas informações sobre os produtos vendas realizadas. A tabela possui os seguintes campos:
     * `id` => AutoField, primary_key = True
-    * `CPFVendedor` => ForeignKey references Vendedor, on_delete = CASCADE
-    * `CPFCliente` => ForeignKey references Cliente, on_delete = CASCADE
-    * `idProduto` => ForeignKey references Produto, on_delete = CASCADE
+    * `CPFVendedor` => ForeignKey references `Vendedor`, on_delete = CASCADE
+    * `CPFCliente` => ForeignKey references `Cliente`, on_delete = CASCADE
+    * `idProduto` => ForeignKey references `Produto`, on_delete = CASCADE
     * `data` => DateField
     * `quantidade` => IntegerField
     * `precoUnitario` => DecimalField, max_digits = 10, decimal_places = 2

@@ -25,7 +25,7 @@ class Cliente(models.Model):
     def __str__(self):
         return str(self.CPF)
 
-    def get_eligibilidade(self):
+    def get_elegibilidade(self):
         vendas = Venda.objects.filter(CPFCliente = self.CPF).count()
         if vendas % 5 == 0: return 'SIM'
         else: return 'NÃO'

@@ -8,7 +8,7 @@
         <th>Telefone</th>
         <th>Data de nascimento</th>
         <th>Data de cadastro</th>
-        <th>Eligibilidade</th>
+        <th>Elegibilidade</th>
         <th></th>
         <th></th>
     </tr>
@@ -21,7 +21,7 @@
             <td>{{ data.telefone }}</td>
             <td>{{ data.dataNascimento }}</td>
             <td>{{ data.dataCadastro }}</td>
-            <td>{{ data.get_eligibilidade }}</td>
+            <td>{{ data.get_elegibilidade }}</td>
             <td><a href="update/{{data.CPF}}" class="btn btn-primary">Editar</a></td>
             <td><a href="delete/{{data.CPF}}" class="btn btn-danger" onclick="return confirm('Deseja excluir essa linha?');">Deletar</a></td>
         </tr>

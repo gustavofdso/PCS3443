@@ -21,9 +21,14 @@ class Cliente(models.Model):
     telefone = models.IntegerField(null = True)
     dataNascimento = models.DateField(null = True)
     dataCadastro = models.DateField()
-    
+
     def __str__(self):
         return str(self.CPF)
+
+    def get_eligibilidade(self):
+        vendas = Venda.objects.filter(CPFCliente = self.CPF).count()
+        if vendas % 5 == 0: return 'SIM'
+        else: return 'NÃO'
 
 class Produto(models.Model):
     id = models.AutoField(primary_key = True)

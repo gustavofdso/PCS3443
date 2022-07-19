@@ -123,6 +123,8 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# Adicionados
+
 USE_L10N = False
 
 DATE_FORMAT = "d/m/Y"

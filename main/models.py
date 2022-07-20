@@ -41,9 +41,9 @@ class Produto(models.Model):
 
 class Venda(models.Model):
     id = models.AutoField(primary_key = True)
-    CPFVendedor = models.ForeignKey(Vendedor, on_delete = models.CASCADE)
-    CPFCliente = models.ForeignKey(Cliente, on_delete = models.CASCADE)
-    idProduto = models.ForeignKey(Produto, on_delete = models.CASCADE)
+    CPFVendedor = models.ForeignKey(Vendedor, on_delete = models.SET_NULL)
+    CPFCliente = models.ForeignKey(Cliente, on_delete = models.SET_NULL)
+    idProduto = models.ForeignKey(Produto, on_delete = models.SET_NULL)
     data = models.DateField()
     quantidade = models.IntegerField()
     precoUnitario = models.DecimalField(max_digits = 10, decimal_places = 2)
